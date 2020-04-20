@@ -16,6 +16,7 @@
 		13AC51A0244E4AD7001155C6 /* basicAlbumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC519F244E4AD7001155C6 /* basicAlbumUITests.swift */; };
 		13AC51AE244E4C5B001155C6 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC51AD244E4C5B001155C6 /* AlbumViewController.swift */; };
 		13AC51B0244E5041001155C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC51AF244E5041001155C6 /* Extensions.swift */; };
+		13AC51B2244E5881001155C6 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC51B1244E5881001155C6 /* Album.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		13AC51A1244E4AD7001155C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13AC51AD244E4C5B001155C6 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		13AC51AF244E5041001155C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		13AC51B1244E5881001155C6 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				13AC517F244E4AD4001155C6 /* SceneDelegate.swift */,
 				13AC5181244E4AD4001155C6 /* ViewController.swift */,
 				13AC51AD244E4C5B001155C6 /* AlbumViewController.swift */,
+				13AC51B1244E5881001155C6 /* Album.swift */,
 				13AC5186244E4AD6001155C6 /* Assets.xcassets */,
 				13AC5188244E4AD6001155C6 /* LaunchScreen.storyboard */,
 				13AC518B244E4AD6001155C6 /* Info.plist */,
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13AC51B0244E5041001155C6 /* Extensions.swift in Sources */,
+				13AC51B2244E5881001155C6 /* Album.swift in Sources */,
 				13AC51AE244E4C5B001155C6 /* AlbumViewController.swift in Sources */,
 				13AC5182244E4AD4001155C6 /* ViewController.swift in Sources */,
 				13AC517E244E4AD4001155C6 /* AppDelegate.swift in Sources */,

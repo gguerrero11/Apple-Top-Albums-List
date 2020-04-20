@@ -32,6 +32,12 @@ extension UIView {
             view.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
         ]
     }
+    
+    func constraintsForHeight(height: CGFloat) -> [NSLayoutConstraint] {
+        return [
+            heightAnchor.constraint(equalToConstant: height)
+        ]
+    }
 }
 
 @propertyWrapper
@@ -46,9 +52,4 @@ public struct UsesAutoLayout<T: UIView> {
         self.wrappedValue = wrappedValue
         wrappedValue.translatesAutoresizingMaskIntoConstraints = false
     }
-}
-
-final class MyViewController {
-    @UsesAutoLayout
-    var label = UILabel()
 }
