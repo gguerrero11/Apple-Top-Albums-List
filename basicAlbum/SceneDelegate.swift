@@ -21,7 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let nav = UINavigationController()
         let albumView = AlbumViewController()
-        albumView.view.backgroundColor = .red
         nav.viewControllers = [albumView]
         guard let window = window else { return }
         window.windowScene = windowScene
