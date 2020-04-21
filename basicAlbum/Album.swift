@@ -15,8 +15,8 @@ struct Album: Codable {
     var name: String?
     var copyright: String?
     var imageURL: String?
-    var genres: [String]?
-    var url: String?
+    var genres: [Genre]?
+    var artistUrl: String?
     
     enum CodingKeys: String, CodingKey {
         case artistName     = "artistName"
@@ -29,7 +29,15 @@ struct Album: Codable {
     }
     
     init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
         
+        artistName = try container.decode(String.self, forKey: .artistName)
+        releaseDate = try container.decode(String.self, forKey: .releaseDate)
+        name = try container.decode(String.self, forKey: .name)
+        copyright = try container.decode(String.self, forKey: .copyright)
+        imageURL = try container.decode(String.self, forKey: .imageURL)
+        genres = try container.decode([Genre].self, forKey: .genres)
+        artistUrl = try container.decode(String.self, forKey: .artistUrl)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -37,6 +45,12 @@ struct Album: Codable {
     }
 
 }
+
+struct Genre: Codable {
+    var name: String?
+    var url: String?
+}
+
 
 /* Sample JSON
  
