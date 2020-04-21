@@ -93,7 +93,7 @@ class DetailViewController: UIViewController {
         container.addSubview(button)
         button.setTitle("iTunes Store", for: .normal)
         button.titleLabel?.textColor = .white
-        button.addTarget(self, action: Selector(("openArtistPage")), for: .touchUpInside)
+        button.addTarget(self, action: #selector(DetailViewController.openArtistPage), for: .touchUpInside)
         button.backgroundColor = .black
         button.layer.cornerRadius = 25
         stackView.addArrangedSubview(container)
@@ -109,8 +109,13 @@ class DetailViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
     }
     
-    func openArtistPage() {
-        
+    @objc func openArtistPage() {
+        if let stringUrl = album?.artistUrl, let url = URL(string: stringUrl), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            let msg = UIAlertController(title: "Missing Artist URL", message: "Artist doesn't not have an iTunes store page", preferredStyle: .alert)
+            present(msg, animated: true, completion: nil)
+        }
     }
     
     public required init?(coder aDecoder: NSCoder) {
