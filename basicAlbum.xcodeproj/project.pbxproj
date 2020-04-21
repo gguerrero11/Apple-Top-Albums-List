@@ -13,7 +13,6 @@
 		13AC5187244E4AD6001155C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13AC5186244E4AD6001155C6 /* Assets.xcassets */; };
 		13AC518A244E4AD6001155C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13AC5188244E4AD6001155C6 /* LaunchScreen.storyboard */; };
 		13AC5195244E4AD7001155C6 /* basicAlbumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC5194244E4AD7001155C6 /* basicAlbumTests.swift */; };
-		13AC51A0244E4AD7001155C6 /* basicAlbumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC519F244E4AD7001155C6 /* basicAlbumUITests.swift */; };
 		13AC51AE244E4C5B001155C6 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC51AD244E4C5B001155C6 /* AlbumViewController.swift */; };
 		13AC51B0244E5041001155C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC51AF244E5041001155C6 /* Extensions.swift */; };
 		13AC51B2244E5881001155C6 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC51B1244E5881001155C6 /* Album.swift */; };
@@ -23,13 +22,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		13AC5191244E4AD7001155C6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 13AC5172244E4AD3001155C6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 13AC5179244E4AD4001155C6;
-			remoteInfo = basicAlbum;
-		};
-		13AC519C244E4AD7001155C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 13AC5172244E4AD3001155C6 /* Project object */;
 			proxyType = 1;
@@ -49,9 +41,6 @@
 		13AC5190244E4AD7001155C6 /* basicAlbumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = basicAlbumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13AC5194244E4AD7001155C6 /* basicAlbumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = basicAlbumTests.swift; sourceTree = "<group>"; };
 		13AC5196244E4AD7001155C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		13AC519B244E4AD7001155C6 /* basicAlbumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = basicAlbumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		13AC519F244E4AD7001155C6 /* basicAlbumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = basicAlbumUITests.swift; sourceTree = "<group>"; };
-		13AC51A1244E4AD7001155C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13AC51AD244E4C5B001155C6 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		13AC51AF244E5041001155C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		13AC51B1244E5881001155C6 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
@@ -74,13 +63,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		13AC5198244E4AD7001155C6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -89,7 +71,6 @@
 			children = (
 				13AC517C244E4AD4001155C6 /* basicAlbum */,
 				13AC5193244E4AD7001155C6 /* basicAlbumTests */,
-				13AC519E244E4AD7001155C6 /* basicAlbumUITests */,
 				13AC517B244E4AD4001155C6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,7 +80,6 @@
 			children = (
 				13AC517A244E4AD4001155C6 /* basicAlbum.app */,
 				13AC5190244E4AD7001155C6 /* basicAlbumTests.xctest */,
-				13AC519B244E4AD7001155C6 /* basicAlbumUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,15 +109,6 @@
 				13AC5196244E4AD7001155C6 /* Info.plist */,
 			);
 			path = basicAlbumTests;
-			sourceTree = "<group>";
-		};
-		13AC519E244E4AD7001155C6 /* basicAlbumUITests */ = {
-			isa = PBXGroup;
-			children = (
-				13AC519F244E4AD7001155C6 /* basicAlbumUITests.swift */,
-				13AC51A1244E4AD7001155C6 /* Info.plist */,
-			);
-			path = basicAlbumUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,24 +149,6 @@
 			productReference = 13AC5190244E4AD7001155C6 /* basicAlbumTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13AC519A244E4AD7001155C6 /* basicAlbumUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 13AC51AA244E4AD7001155C6 /* Build configuration list for PBXNativeTarget "basicAlbumUITests" */;
-			buildPhases = (
-				13AC5197244E4AD7001155C6 /* Sources */,
-				13AC5198244E4AD7001155C6 /* Frameworks */,
-				13AC5199244E4AD7001155C6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				13AC519D244E4AD7001155C6 /* PBXTargetDependency */,
-			);
-			name = basicAlbumUITests;
-			productName = basicAlbumUITests;
-			productReference = 13AC519B244E4AD7001155C6 /* basicAlbumUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -210,10 +163,6 @@
 						CreatedOnToolsVersion = 11.3.1;
 					};
 					13AC518F244E4AD7001155C6 = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = 13AC5179244E4AD4001155C6;
-					};
-					13AC519A244E4AD7001155C6 = {
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = 13AC5179244E4AD4001155C6;
 					};
@@ -234,7 +183,6 @@
 			targets = (
 				13AC5179244E4AD4001155C6 /* basicAlbum */,
 				13AC518F244E4AD7001155C6 /* basicAlbumTests */,
-				13AC519A244E4AD7001155C6 /* basicAlbumUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -250,13 +198,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		13AC518E244E4AD7001155C6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		13AC5199244E4AD7001155C6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -289,14 +230,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		13AC5197244E4AD7001155C6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				13AC51A0244E4AD7001155C6 /* basicAlbumUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -304,11 +237,6 @@
 			isa = PBXTargetDependency;
 			target = 13AC5179244E4AD4001155C6 /* basicAlbum */;
 			targetProxy = 13AC5191244E4AD7001155C6 /* PBXContainerItemProxy */;
-		};
-		13AC519D244E4AD7001155C6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 13AC5179244E4AD4001155C6 /* basicAlbum */;
-			targetProxy = 13AC519C244E4AD7001155C6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -518,46 +446,6 @@
 			};
 			name = Release;
 		};
-		13AC51AB244E4AD7001155C6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y5AY735344;
-				INFOPLIST_FILE = basicAlbumUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gabeguerero.basicAlbumUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = basicAlbum;
-			};
-			name = Debug;
-		};
-		13AC51AC244E4AD7001155C6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y5AY735344;
-				INFOPLIST_FILE = basicAlbumUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gabeguerero.basicAlbumUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = basicAlbum;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -584,15 +472,6 @@
 			buildConfigurations = (
 				13AC51A8244E4AD7001155C6 /* Debug */,
 				13AC51A9244E4AD7001155C6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		13AC51AA244E4AD7001155C6 /* Build configuration list for PBXNativeTarget "basicAlbumUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				13AC51AB244E4AD7001155C6 /* Debug */,
-				13AC51AC244E4AD7001155C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

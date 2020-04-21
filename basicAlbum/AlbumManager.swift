@@ -14,7 +14,7 @@ class AlbumManager {
     var albums = [Album]()
     var albumDownloadCallback: (()->Void)?
     
-    let albumsURL = "https://rss.itunes.apple.com/api/v1/us/apple-music/top-albums/all/10/non-explicit.json"
+    let albumsURL = "https://rss.itunes.apple.com/api/v1/us/apple-music/top-albums/all/100/non-explicit.json"
     
     init() {
         getAlbums()

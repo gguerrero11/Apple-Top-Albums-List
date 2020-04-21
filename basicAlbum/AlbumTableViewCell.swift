@@ -18,7 +18,6 @@ class AlbumTableViewCell: UITableViewCell {
             
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .white
         clipsToBounds = true
         
         setupArtImage()
@@ -50,7 +49,6 @@ class AlbumTableViewCell: UITableViewCell {
     func setupAlbumLabel() {
         contentView.addSubview(albumLabel)
         albumLabel.textAlignment = .natural
-        albumLabel.textColor = .darkGray
         albumLabel.numberOfLines = 2
         albumLabel.lineBreakMode = .byTruncatingTail
         albumLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)

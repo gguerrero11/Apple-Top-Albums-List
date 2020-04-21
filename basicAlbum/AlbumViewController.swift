@@ -30,7 +30,7 @@ class AlbumViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         setupTableView()
     }
     
@@ -38,7 +38,6 @@ class AlbumViewController: UIViewController {
         tableView.dataSource = self
         tableView.prefetchDataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = .white
         tableView.estimatedRowHeight = 80
         view.addSubview(tableView)
         NSLayoutConstraint.activate(tableView.constraintsForAnchoringTo(safeAreaLayoutBoundsOf: view))

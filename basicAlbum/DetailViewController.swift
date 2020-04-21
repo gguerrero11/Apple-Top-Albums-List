@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         setupViews()
     }
     
@@ -96,6 +96,8 @@ class DetailViewController: UIViewController {
         button.addTarget(self, action: #selector(DetailViewController.openArtistPage), for: .touchUpInside)
         button.backgroundColor = .black
         button.layer.cornerRadius = 25
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.white.cgColor
         stackView.addArrangedSubview(container)
         
         let constraints = [
@@ -177,7 +179,6 @@ class DetailEntryView: UIView {
     func setupValueLabel() {
         valueLabel.text = value
         valueLabel.textAlignment = .left
-        valueLabel.textColor = .black
         valueLabel.font = UIFont.systemFont(ofSize: 20, weight: .light)
         valueLabel.numberOfLines = 0
         valueLabel.sizeToFit()
