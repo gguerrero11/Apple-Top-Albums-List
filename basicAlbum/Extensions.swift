@@ -24,6 +24,10 @@ extension UIView {
         ]
     }
     
+    /// Returns a collection of constraints to anchor the bounds of the current view to safe are layout bounds of the given view.
+    ///
+    /// - Parameter view: The view to anchor to.
+    /// - Returns: The layout constraints needed for this constraint.
     func constraintsForAnchoringTo(safeAreaLayoutBoundsOf view: UIView) -> [NSLayoutConstraint] {
         return [
             topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -33,6 +37,11 @@ extension UIView {
         ]
     }
     
+    /// Returns a collection of constraints to anchor the bounds of the current view to safe are layout bounds of the given view with padding
+    ///
+    /// - Parameter view: The view to anchor to.
+    /// - Parameter padding: The amount of padding from the edges
+    /// - Returns: The layout constraints needed for this constraint.
     func constraintsForAnchoringTo(safeAreaLayoutBoundsOf view: UIView, padding: CGFloat) -> [NSLayoutConstraint] {
         return [
             topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
@@ -59,6 +68,10 @@ public struct UsesAutoLayout<T: UIView> {
 }
 
 extension UIImageView {
+    /// Sets the imageView's image property with an image from a URL. Temporarily stores sets the image to a
+    /// system icon as a placeholder. It checks if the image has been pre-cached, if not it will download it and save it to the cache
+    ///
+    /// - Parameter string: The string URL of the image
     func setImageURL(string: String?) {
         self.backgroundColor = .lightGray
         self.image = UIImage(systemName: "photo")?.withTintColor(.white)
@@ -70,11 +83,11 @@ extension UIImageView {
         
         DispatchQueue.global().async { [weak self] in
             // if image is in cache set the image
-            if let image = AlbumManager.getImage(forPath: string) {
+            if let image = AlbumManager.getImage(forKey: string) {
                 resultImage = image
             } else if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                 // otherwise get downloaded image
-                AlbumManager.cacheImage(image: image, forPath: string)
+                AlbumManager.cacheImage(image: image, forKey: string)
                 resultImage = image
             }
             

@@ -125,6 +125,7 @@ class DetailViewController: UIViewController {
     
 }
 
+/// A pre-arranged view that with the title category and value for the category
 class DetailEntryView: UIView {
     @UsesAutoLayout var titleLabel = UILabel()
     @UsesAutoLayout var valueLabel = UILabel()
