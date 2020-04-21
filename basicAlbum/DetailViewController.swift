@@ -10,16 +10,16 @@ import UIKit
 
 class DetailViewController: UIViewController {
     var album: Album?
-    let padding: CGFloat = 15.0
+    let padding: CGFloat = 20
     let edgePadding: CGFloat = 20.0
     @UsesAutoLayout var stackView = UIStackView()
     @UsesAutoLayout var imageView = UIImageView()
+    @UsesAutoLayout var button = UIButton()
+    @UsesAutoLayout var container = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         view.backgroundColor = .white
-        
         setupViews()
     }
     
@@ -37,14 +37,15 @@ class DetailViewController: UIViewController {
         stackView.addArrangedSubview(DetailEntryView(title: "ARTIST", value: album?.artistName))
         stackView.addArrangedSubview(DetailEntryView(title: "RELEASE DATE", value: album?.releaseDate?.toDate()?.toString()))
         setupGenres()
+        setupiTunesLink()
     }
     
     func setupStackView() {
+        view.addSubview(stackView)
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.distribution = .fillProportionally
-        stackView.spacing = padding
-        view.addSubview(stackView)
+        stackView.distribution = .fill
+        stackView.spacing = 10
         NSLayoutConstraint.activate(stackView.constraintsForAnchoringTo(safeAreaLayoutBoundsOf: view, padding: padding))
     }
         
@@ -84,8 +85,32 @@ class DetailViewController: UIViewController {
                 if index != genres.endIndex-1 { result += ", " }
             }
         }
-
         stackView.addArrangedSubview(DetailEntryView(title: "GENRES", value: result))
+    }
+    
+    func setupiTunesLink() {
+        let container = UIView()
+        container.addSubview(button)
+        button.setTitle("iTunes Store", for: .normal)
+        button.titleLabel?.textColor = .white
+        button.addTarget(self, action: Selector(("openArtistPage")), for: .touchUpInside)
+        button.backgroundColor = .black
+        button.layer.cornerRadius = 25
+        stackView.addArrangedSubview(container)
+        
+        let constraints = [
+            button.topAnchor.constraint(equalTo: container.topAnchor),
+            button.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            button.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            button.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+            button.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            button.heightAnchor.constraint(equalToConstant: CGFloat(50)),
+        ]
+        NSLayoutConstraint.activate(constraints)
+    }
+    
+    func openArtistPage() {
+        
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -96,15 +121,16 @@ class DetailViewController: UIViewController {
 }
 
 class DetailEntryView: UIView {
-    var titleLabel = UILabel()
-    var valueLabel = UILabel()
+    @UsesAutoLayout var titleLabel = UILabel()
+    @UsesAutoLayout var valueLabel = UILabel()
     @UsesAutoLayout var stackView = UIStackView()
+    @UsesAutoLayout var container = UIView()
     
     var title: String = "Title"
     var value: String = "Not available"
 
     init(title: String, value: String?) {
-        super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        super.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         self.title = title
         self.value = value ?? "Not available"
         setupView()
@@ -115,29 +141,31 @@ class DetailEntryView: UIView {
     }
     
     func setupView() {
-        setupStackView()
+        container.addSubview(titleLabel)
+        addSubview(container)
+        addSubview(valueLabel)
         setupTitleLabel()
         setupValueLabel()
     }
-    
-    func setupStackView() {
-        addSubview(stackView)
-        stackView.axis = .horizontal
-        stackView.spacing = 20
-        stackView.alignment = .top
-        stackView.distribution = .fillProportionally
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(valueLabel)
-        NSLayoutConstraint.activate(stackView.constraintsForAnchoringTo(boundsOf: self))
-    }
-    
+        
     func setupTitleLabel() {
         titleLabel.text = title
         titleLabel.textAlignment = .right
         titleLabel.numberOfLines = 0
         titleLabel.textColor = .lightGray
-        titleLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
-        NSLayoutConstraint.activate([titleLabel.widthAnchor.constraint(equalToConstant: 80)])
+        titleLabel.sizeToFit()
+        titleLabel.font = UIFont.systemFont(ofSize: 10, weight: .light)
+        
+        let constraints = [
+            container.widthAnchor.constraint(equalToConstant: 50),
+            container.topAnchor.constraint(equalTo: topAnchor),
+            container.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            container.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            
+            titleLabel.topAnchor.constraint(equalTo: container.topAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+        ]
+        NSLayoutConstraint.activate(constraints)
     }
     
     func setupValueLabel() {
@@ -146,6 +174,16 @@ class DetailEntryView: UIView {
         valueLabel.textColor = .black
         valueLabel.font = UIFont.systemFont(ofSize: 20, weight: .light)
         valueLabel.numberOfLines = 0
+        valueLabel.sizeToFit()
+        
+        let constraints = [
+            valueLabel.topAnchor.constraint(equalTo: topAnchor),
+            valueLabel.leadingAnchor.constraint(equalTo: container.trailingAnchor, constant: 10),
+            valueLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            valueLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: 20),
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
     }
 }
 

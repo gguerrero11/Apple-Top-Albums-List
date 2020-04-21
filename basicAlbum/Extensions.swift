@@ -42,21 +42,6 @@ extension UIView {
         ]
     }
     
-    func constraintsForAnchoringToTop(view: UIView) -> [NSLayoutConstraint] {
-        return [
-            view.topAnchor.constraint(equalTo: view.topAnchor),
-            view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            view.bottomAnchor.constraint(greaterThanOrEqualTo: view.bottomAnchor),
-            view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ]
-    }
-
-    
-    func constraintsForHeight(height: CGFloat) -> [NSLayoutConstraint] {
-        return [
-            heightAnchor.constraint(equalToConstant: height)
-        ]
-    }
 }
 
 @propertyWrapper
