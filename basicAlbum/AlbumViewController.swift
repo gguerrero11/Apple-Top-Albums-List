@@ -18,12 +18,13 @@ class AlbumViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         tableView.register(AlbumTableViewCell.self, forCellReuseIdentifier: dequeueCellID)
         
         albumManager.albumDownloadCallback = {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.title = self.albumManager.title
             }
         }
     }

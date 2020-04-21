@@ -33,6 +33,25 @@ extension UIView {
         ]
     }
     
+    func constraintsForAnchoringTo(safeAreaLayoutBoundsOf view: UIView, padding: CGFloat) -> [NSLayoutConstraint] {
+        return [
+            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+            leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: padding),
+            view.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: padding),
+            view.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: padding),
+        ]
+    }
+    
+    func constraintsForAnchoringToTop(view: UIView) -> [NSLayoutConstraint] {
+        return [
+            view.topAnchor.constraint(equalTo: view.topAnchor),
+            view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.bottomAnchor.constraint(greaterThanOrEqualTo: view.bottomAnchor),
+            view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ]
+    }
+
+    
     func constraintsForHeight(height: CGFloat) -> [NSLayoutConstraint] {
         return [
             heightAnchor.constraint(equalToConstant: height)
@@ -80,5 +99,29 @@ extension UIImageView {
                 self?.backgroundColor = .clear
             }
         }
+    }
+}
+
+extension String {
+
+    func toDate(withFormat format: String = "yyyy-MM-dd")-> Date?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        let date = dateFormatter.date(from: self)
+
+        return date
+
+    }
+}
+
+extension Date {
+
+    func toString(withFormat format: String = "MMMM d, yyyy") -> String {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        let str = dateFormatter.string(from: self)
+
+        return str
     }
 }

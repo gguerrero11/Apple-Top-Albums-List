@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class AlbumManager {
+    var title = ""
     var albums = [Album]()
     var albumDownloadCallback: (()->Void)?
     
@@ -32,7 +33,6 @@ class AlbumManager {
             if let jsonString = String(data: data, encoding: .utf8) {
 //                print(jsonString)
                 handleJSONString(jsonString)
-                
             }
         }
     }
@@ -41,6 +41,7 @@ class AlbumManager {
         do {
             let jsonData = jsonString.data(using: .utf8)!
             let response = try JSONDecoder().decode(Response.self, from: jsonData)
+            self.title = response.feed.title ?? "Title"
             self.albums = response.feed.results
             if let callback = self.albumDownloadCallback {
                 callback()
@@ -94,5 +95,6 @@ struct Response: Codable {
     
     struct Feed: Codable {
         var results: [Album]
+        var title: String?
     }
 }
