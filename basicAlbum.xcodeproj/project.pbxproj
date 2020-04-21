@@ -18,6 +18,7 @@
 		13AC51B0244E5041001155C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC51AF244E5041001155C6 /* Extensions.swift */; };
 		13AC51B2244E5881001155C6 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC51B1244E5881001155C6 /* Album.swift */; };
 		13AC51B6244E5FED001155C6 /* AlbumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC51B5244E5FED001155C6 /* AlbumManager.swift */; };
+		13AC51BA244E7330001155C6 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC51B9244E7330001155C6 /* AlbumTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		13AC51AF244E5041001155C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		13AC51B1244E5881001155C6 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		13AC51B5244E5FED001155C6 /* AlbumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumManager.swift; sourceTree = "<group>"; };
+		13AC51B9244E7330001155C6 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				13AC517F244E4AD4001155C6 /* SceneDelegate.swift */,
 				13AC5181244E4AD4001155C6 /* ViewController.swift */,
 				13AC51AD244E4C5B001155C6 /* AlbumViewController.swift */,
+				13AC51B9244E7330001155C6 /* AlbumTableViewCell.swift */,
 				13AC51B5244E5FED001155C6 /* AlbumManager.swift */,
 				13AC51B1244E5881001155C6 /* Album.swift */,
 				13AC5186244E4AD6001155C6 /* Assets.xcassets */,
@@ -274,6 +277,7 @@
 				13AC51B6244E5FED001155C6 /* AlbumManager.swift in Sources */,
 				13AC517E244E4AD4001155C6 /* AppDelegate.swift in Sources */,
 				13AC5180244E4AD4001155C6 /* SceneDelegate.swift in Sources */,
+				13AC51BA244E7330001155C6 /* AlbumTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
