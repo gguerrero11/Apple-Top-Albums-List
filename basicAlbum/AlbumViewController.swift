@@ -37,6 +37,7 @@ class AlbumViewController: UIViewController {
     
     func setupTableView() {
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .white
         tableView.estimatedRowHeight = 80
@@ -72,8 +73,22 @@ extension AlbumViewController: UITableViewDataSource {
             let album = albumManager.albums[indexPath.row]
             cell.albumLabel.text = album.name ?? "[Album Name]"
             cell.artistLabel.text = album.artistName ?? "[Artist Name]"
+            cell.artImageView.setImageURL(string: album.imageURL)
             return cell
         }
         return UITableViewCell()
+    }
+}
+
+extension AlbumViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if let cell = tableView.cellForRow(at: indexPath) as? AlbumTableViewCell {
+                let album = albumManager.albums[indexPath.row]
+                cell.albumLabel.text = album.name ?? "[Album Name]"
+                cell.artistLabel.text = album.artistName ?? "[Artist Name]"
+                cell.artImageView.setImageURL(string: album.imageURL)
+            }
+        }
     }
 }

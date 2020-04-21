@@ -53,7 +53,8 @@ class AlbumTableViewCell: UITableViewCell {
         contentView.addSubview(albumLabel)
         albumLabel.textAlignment = .natural
         albumLabel.textColor = .darkGray
-        albumLabel.numberOfLines = 0
+        albumLabel.numberOfLines = 2
+        albumLabel.lineBreakMode = .byTruncatingTail
         albumLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         
         let constraints = [
@@ -68,14 +69,15 @@ class AlbumTableViewCell: UITableViewCell {
         contentView.addSubview(artistLabel)
         artistLabel.textAlignment = .natural
         artistLabel.textColor = .lightGray
-        albumLabel.numberOfLines = 0
+        artistLabel.numberOfLines = 1
+        artistLabel.lineBreakMode = .byTruncatingTail
         artistLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         
         let constraints = [
             artistLabel.topAnchor.constraint(equalTo: albumLabel.bottomAnchor, constant: 0),
             artistLabel.leadingAnchor.constraint(equalTo: albumLabel.leadingAnchor, constant: 0),
             artistLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: 10),
-            artistLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10)
+            artistLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
         ]
         NSLayoutConstraint.activate(constraints)
     }

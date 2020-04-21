@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AlbumManager {
     var albums = [Album]()
@@ -48,6 +49,44 @@ class AlbumManager {
             print(error)
         }
     }
+    
+    static func cacheImage(image: UIImage, forPath path: String) {
+        let imageData = image.jpegData(compressionQuality: 1)
+        let relativePath = "image_\(Date.timeIntervalSinceReferenceDate).jpg"
+        let cachePath = AlbumManager.documentsPathForFileName(name: relativePath)
+        let url = URL(fileURLWithPath: cachePath)
+        do {
+            try imageData?.write(to: url, options: .atomic)
+            UserDefaults.standard.set(relativePath, forKey: path)
+            UserDefaults.standard.synchronize()
+        } catch {
+            print("error caching")
+        }
+    }
+    
+    static func getImage(forPath path: String) -> UIImage? {
+        var image: UIImage?
+        let possibleOldImagePath = UserDefaults.standard.object(forKey: path) as? String
+        if let oldImagePath = possibleOldImagePath {
+            let oldFullPath = AlbumManager.documentsPathForFileName(name: oldImagePath)
+            let url = URL(fileURLWithPath: oldFullPath)
+            do {
+                let oldImageData = try Data(contentsOf: url)
+                image = UIImage(data: oldImageData)
+            } catch {
+                print("error getting cached Image")
+            }
+        }
+        return image
+    }
+    
+    static func documentsPathForFileName(name: String) -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let path = paths[0] as NSString
+        let fullPath = path.appendingPathComponent(name)
+        return fullPath
+    }
+    
 }
 
 struct Response: Codable {

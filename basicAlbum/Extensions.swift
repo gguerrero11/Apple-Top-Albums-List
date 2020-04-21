@@ -53,3 +53,32 @@ public struct UsesAutoLayout<T: UIView> {
         wrappedValue.translatesAutoresizingMaskIntoConstraints = false
     }
 }
+
+extension UIImageView {
+    func setImageURL(string: String?) {
+        self.backgroundColor = .lightGray
+        self.image = UIImage(systemName: "photo")?.withTintColor(.white)
+        self.contentMode = .center
+        guard let string = string else { return }
+        guard let url = URL(string: string) else { return }
+        
+        var resultImage: UIImage?
+        
+        DispatchQueue.global().async { [weak self] in
+            // if image is in cache set the image
+            if let image = AlbumManager.getImage(forPath: string) {
+                resultImage = image
+            } else if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                // otherwise get downloaded image
+                AlbumManager.cacheImage(image: image, forPath: string)
+                resultImage = image
+            }
+            
+            DispatchQueue.main.async {
+                self?.image = resultImage
+                self?.contentMode = .scaleAspectFit
+                self?.backgroundColor = .clear
+            }
+        }
+    }
+}
