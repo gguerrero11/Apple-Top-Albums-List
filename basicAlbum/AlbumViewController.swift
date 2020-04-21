@@ -9,16 +9,19 @@
 import UIKit
 
 class AlbumViewController: UIViewController {
-    @UsesAutoLayout
-    var tableView = UITableView()
-    @UsesAutoLayout
-    var navBar = UINavigationBar()
+    
+    @UsesAutoLayout var tableView = UITableView()
+    @UsesAutoLayout var navBar = UINavigationBar()
     
     let dequeueCellID = "albumCell"
     let albumManager = AlbumManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(AlbumTableViewCell.self, forCellReuseIdentifier: dequeueCellID)
+        view.backgroundColor = .white
+        
         albumManager.albumDownloadCallback = {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -29,14 +32,14 @@ class AlbumViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         view.backgroundColor = .white
         setupTableView()
-        setupNavigationBar()
+//        setupNavigationBar()
     }
     
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .white
-        tableView.register(AlbumTableViewCell.self, forCellReuseIdentifier: dequeueCellID)
+        tableView.estimatedRowHeight = 80
         view.addSubview(tableView)
         NSLayoutConstraint.activate(tableView.constraintsForAnchoringTo(safeAreaLayoutBoundsOf: view))
     }
@@ -53,6 +56,10 @@ extension AlbumViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // code to push to detail
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 }
 
 extension AlbumViewController: UITableViewDataSource {
@@ -63,7 +70,9 @@ extension AlbumViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: dequeueCellID) as? AlbumTableViewCell {
             let album = albumManager.albums[indexPath.row]
-
+            cell.albumLabel.text = album.name ?? "[Album Name]"
+            cell.artistLabel.text = album.artistName ?? "[Artist Name]"
+            return cell
         }
         return UITableViewCell()
     }
