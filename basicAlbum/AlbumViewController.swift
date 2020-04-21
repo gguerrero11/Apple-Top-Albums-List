@@ -20,7 +20,6 @@ class AlbumViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.register(AlbumTableViewCell.self, forCellReuseIdentifier: dequeueCellID)
-        view.backgroundColor = .white
         
         albumManager.albumDownloadCallback = {
             DispatchQueue.main.async {
@@ -32,7 +31,6 @@ class AlbumViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         view.backgroundColor = .white
         setupTableView()
-//        setupNavigationBar()
     }
     
     func setupTableView() {
@@ -44,18 +42,14 @@ class AlbumViewController: UIViewController {
         view.addSubview(tableView)
         NSLayoutConstraint.activate(tableView.constraintsForAnchoringTo(safeAreaLayoutBoundsOf: view))
     }
-    
-    func setupNavigationBar() {
-        view.addSubview(navBar)
-        navBar.barStyle = .default
-        NSLayoutConstraint.activate(navBar.constraintsForAnchoringTo(safeAreaLayoutBoundsOf: view))
-        NSLayoutConstraint.activate(navBar.constraintsForHeight(height: 60))
-    }
 }
 
 extension AlbumViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // code to push to detail
+        tableView.deselectRow(at: indexPath, animated: true)
+        let album = albumManager.albums[indexPath.row]
+        let detailView = DetailViewController(withAlbum: album)
+        navigationController?.pushViewController(detailView, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		13AC517E244E4AD4001155C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC517D244E4AD4001155C6 /* AppDelegate.swift */; };
 		13AC5180244E4AD4001155C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC517F244E4AD4001155C6 /* SceneDelegate.swift */; };
-		13AC5182244E4AD4001155C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC5181244E4AD4001155C6 /* ViewController.swift */; };
+		13AC5182244E4AD4001155C6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC5181244E4AD4001155C6 /* DetailViewController.swift */; };
 		13AC5187244E4AD6001155C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13AC5186244E4AD6001155C6 /* Assets.xcassets */; };
 		13AC518A244E4AD6001155C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13AC5188244E4AD6001155C6 /* LaunchScreen.storyboard */; };
 		13AC5195244E4AD7001155C6 /* basicAlbumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC5194244E4AD7001155C6 /* basicAlbumTests.swift */; };
@@ -42,7 +42,7 @@
 		13AC517A244E4AD4001155C6 /* basicAlbum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = basicAlbum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13AC517D244E4AD4001155C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13AC517F244E4AD4001155C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		13AC5181244E4AD4001155C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		13AC5181244E4AD4001155C6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		13AC5186244E4AD6001155C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13AC5189244E4AD6001155C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13AC518B244E4AD6001155C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 			children = (
 				13AC517D244E4AD4001155C6 /* AppDelegate.swift */,
 				13AC517F244E4AD4001155C6 /* SceneDelegate.swift */,
-				13AC5181244E4AD4001155C6 /* ViewController.swift */,
+				13AC5181244E4AD4001155C6 /* DetailViewController.swift */,
 				13AC51AD244E4C5B001155C6 /* AlbumViewController.swift */,
 				13AC51B9244E7330001155C6 /* AlbumTableViewCell.swift */,
 				13AC51B5244E5FED001155C6 /* AlbumManager.swift */,
@@ -273,7 +273,7 @@
 				13AC51B0244E5041001155C6 /* Extensions.swift in Sources */,
 				13AC51B2244E5881001155C6 /* Album.swift in Sources */,
 				13AC51AE244E4C5B001155C6 /* AlbumViewController.swift in Sources */,
-				13AC5182244E4AD4001155C6 /* ViewController.swift in Sources */,
+				13AC5182244E4AD4001155C6 /* DetailViewController.swift in Sources */,
 				13AC51B6244E5FED001155C6 /* AlbumManager.swift in Sources */,
 				13AC517E244E4AD4001155C6 /* AppDelegate.swift in Sources */,
 				13AC5180244E4AD4001155C6 /* SceneDelegate.swift in Sources */,
